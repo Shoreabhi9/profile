@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abhinav Mishra | 🚀 Physics + 🏃‍♂️ Running + 📚 Books</title>
+    <style>
+        :root {
+            --cosmic-purple: #6a00f4;
+            --nebula-pink: #ff2d75;
+            --star-yellow: #ffde59;
+            --galaxy-blue: #00a1f4;
+            --black-hole: #0f0e17;
+            --bg-gradient: linear-gradient(135deg, var(--cosmic-purple) 0%, var(--black-hole) 100%);
+        }
+        
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            line-height: 1.8;
+            color: white;
+            background: var(--bg-gradient);
+            background-attachment: fixed;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            animation: cosmicGlow 15s infinite alternate;
+        }
+        
+        @keyframes cosmicGlow {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, var(--star-yellow), var(--nebula-pink));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 20px rgba(255,255,255,0.3);
+        }
+        
+        .tagline {
+            font-size: 1.5rem;
+            color: var(--star-yellow);
+            margin-top: 0;
+        }
+        
+        .hero-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--star-yellow);
+            margin: 30px auto;
+            display: block;
+            box-shadow: 0 0 30px var(--nebula-pink);
+            transition: transform 0.5s;
+        }
+        
+        .hero-img:hover {
+            transform: rotate(10deg) scale(1.1);
+        }
+        
+        section {
+            margin-bottom: 50px;
+            padding: 30px;
+            background: rgba(15, 14, 23, 0.7);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--galaxy-blue);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transition: transform 0.3s;
+        }
+        
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(106, 0, 244, 0.4);
+        }
+        
+        h2 {
+            font-size: 2rem;
+            color: var(--star-yellow);
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        h2::after {
+            content: "";
+            flex: 1;
+            height: 3px;
+            background: linear-gradient(to right, var(--nebula-pink), transparent);
+            margin-left: 10px;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        
+        .social-links a {
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.1rem;
+        }
+        
+        .strava {
+            background: var(--nebula-pink);
+            color: white;
+            box-shadow: 0 5px 15px rgba(255, 45, 117, 0.4);
+        }
+        
+        .instagram {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            color: white;
+            box-shadow: 0 5px 15px rgba(220, 39, 67, 0.4);
+        }
+        
+        .email {
+            background: var(--galaxy-blue);
+            color: white;
+            box-shadow: 0 5px 15px rgba(0, 161, 244, 0.4);
+        }
+        
+        .social-links a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .gallery img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: all 0.5s;
+            border: 2px solid transparent;
+        }
+        
+        .gallery img:hover {
+            transform: scale(1.05) rotate(2deg);
+            border-color: var(--star-yellow);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+        
+        .fun-fact {
+            background: rgba(255, 222, 89, 0.1);
+            padding: 20px;
+            border-left: 4px solid var(--star-yellow);
+            margin: 25px 0;
+            font-style: italic;
+            border-radius: 0 10px 10px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .fun-fact::before {
+            content: "✨";
+            position: absolute;
+            font-size: 3rem;
+            right: 10px;
+            top: 10px;
+            opacity: 0.2;
+        }
+        
+        ul {
+            padding-left: 20px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        li::before {
+            content: "⚡";
+            position: absolute;
+            left: 0;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 30px;
+            color: rgba(255,255,255,0.7);
+            position: relative;
+        }
+        
+        footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 25%;
+            width: 50%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--galaxy-blue), transparent);
+        }
+        
+        .emoji-float {
+            position: fixed;
+            font-size: 2rem;
+            animation: float 5s infinite ease-in-out;
+            opacity: 0.7;
+            z-index: -1;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .gallery {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            section {
+                padding: 20px;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Floating emojis -->
+    <div class="emoji-float" style="top: 20%; left: 10%;">🚀</div>
+    <div class="emoji-float" style="top: 70%; left: 85%; animation-delay: 1s;">🏃‍♂️</div>
+    <div class="emoji-float" style="top: 40%; left: 90%; animation-delay: 2s;">📚</div>
+    <div class="emoji-float" style="top: 80%; left: 15%; animation-delay: 3s;">⚛️</div>
+    
+    <header>
+        <h1>Abhinav Mishra</h1>
+        <p class="tagline">⚛️ Physics Nerd | 🏃‍♂️ Occasional Runner | 📚 Professional Book Buyer</p>
+        <img src="1.jpeg" alt="Abhinav Mishra" class="hero-img">
+        <!-- Replace with your actual photo -->
+    </header>
+    
+    <section id="about">
+        <h2><i class="fas fa-user-astronaut"></i> About Me</h2>
+        <p>Officially: MSc in Physics. Unofficially: I'm just a guy who thinks about space while running, and about running while studying space.</p>
+        
+        <div class="fun-fact">
+            <strong>Fun Fact:</strong> I can derive quantum equations but still can't parallel park. The universe works in mysterious ways.
+        </div>
+        
+        <div class="social-links">
+            <a href="https://strava.app.link/blNyHmSw7Rb" class="strava"><i class="fab fa-strava"></i> Strava or It Didn't Happen</a>
+            <a href="https://www.instagram.com/abhinavmishrarunning/" class="instagram"><i class="fab fa-instagram"></i> Running & Regrets</a>
+            <a href="mailto:shoreabhinav@gmail.com" class="email"><i class="fas fa-envelope"></i> Serious(ish) Emails</a>
+        </div>
+    </section>
+    
+    <section id="physics">
+        <h2><i class="fas fa-atom"></i> Physics Stuff</h2>
+        <p>I study the universe's mysteries by day, and by night I wonder why my Wi-Fi doesn't work.</p>
+        <p><strong>Scientific Heroes:</strong> The holy trinity of Indian science - Bhabha, Sarabhai, and Kalam (who proved nerds can be cool).</p>
+        
+        <div class="fun-fact">
+            <strong>Current Research:</strong> Calculating the exact number of chai breaks needed to complete a PhD thesis.
+        </div>
+    </section>
+    
+    <section id="running">
+        <h2><i class="fas fa-running"></i> Running Corner</h2>
+        <p>I run. Not always fast. Not always far. But always with questionable playlists.</p>
+        <p><strong>Latest Achievement:</strong> Ran 5K without stopping (to check my phone).</p>
+        <p><strong>Running Philosophy:</strong> "The first kilometer is a lie. The last kilometer is a betrayal."</p>
+        
+        <div class="fun-fact">
+            <strong>Pro Tip:</strong> If you run slowly enough, it counts as "enjoying the scenery".
+        </div>
+    </section>
+    
+    <section id="books">
+        <h2><i class="fas fa-book-open"></i> Book Nook</h2>
+        <p>My bookshelf is basically a monument to good intentions. So many books, so little attention span.</p>
+        <p><strong>Currently "Reading":</strong> <em>A Brief History of Time</em> (brief being the operative word)</p>
+        <p><strong>All-Time Favorite:</strong> <em>Wings of Fire</em> (because Kalam was the original space geek)</p>
+    </section>
+    
+    <section id="gallery">
+        <h2><i class="fas fa-camera"></i> Life in Pixels</h2>
+        <p>Visual evidence that I occasionally interact with the physical world:</p>
+        
+        <div class="gallery">
+            <!-- Replace these with your actual photos -->
+            <img src="2.jpeg" alt="In the lab">
+            <img src="3.jpeg" alt="Running">
+            <img src="4.jpeg" alt="Books">
+            <img src="6.jpeg" alt="Running spot">
+            <img src="7.jpeg" alt="Giving talk">
+            <img src="8.jpeg" alt="After running">
+        </div>
+    </section>
+    
+    <section id="contact">
+        <h2><i class="fas fa-comment-dots"></i> Let's Connect!</h2>
+        <p>Want to discuss:</p>
+        <ul>
+            <li>Quantum physics? (I'll Google as we talk)</li>
+            <li>Running tips? (I specialize in slow-and-steady)</li>
+            <li>Why Kalam was awesome? (Finally my expertise!)</li>
+            <li>The perfect chai recipe? (Critical research)</li>
+        </ul>
+        <p>Shoot me an email at <a href="mailto:shoreabhinav@gmail.com" style="color: var(--star-yellow);">shoreabhinav@gmail.com</a> or slide into my DMs!</p>
+    </section>
+    
+    <footer>
+        <p>"Dream like Kalam, run like you stole something, and never skip chai breaks."</p>
+        <p>© 2023 Abhinav Mishra | Nobel Prize Count: 0 (but my mom believes in me)</p>
+    </footer>
+</body>
+</html>
