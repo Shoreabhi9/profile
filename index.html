@@ -3,275 +3,603 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abhinav Mishra | 🚀 Physics + 🏃‍♂️ Running + 📚 Books</title>
+    <title>Abhinav Mishra | 🚀 Physics × 🏃‍♂️ Running × 📚 Books</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Orbitron:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --cosmic-purple: #6a00f4;
-            --nebula-pink: #ff2d75;
-            --star-yellow: #ffde59;
-            --galaxy-blue: #00a1f4;
-            --black-hole: #0f0e17;
-            --bg-gradient: linear-gradient(135deg, var(--cosmic-purple) 0%, var(--black-hole) 100%);
+            --primary: #6a00f4;
+            --secondary: #ff2d75;
+            --accent: #ffde59;
+            --dark: #0f0e17;
+            --light: #f8f9fa;
+            --text: white;
+            --bg-gradient: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%);
+            --bg-image: url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564');
+            --bg-blend-mode: overlay;
         }
-        
+
         body {
             font-family: 'Space Grotesk', sans-serif;
             line-height: 1.8;
-            color: white;
-            background: var(--bg-gradient);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: var(--bg-gradient), var(--bg-image);
+            background-size: cover;
+            background-blend-mode: var(--bg-blend-mode);
             background-attachment: fixed;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-            animation: cosmicGlow 15s infinite alternate;
+            position: relative;
+            overflow-x: hidden;
         }
-        
-        @keyframes cosmicGlow {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 100% 50%; }
-        }
-        
+
+        /* Header Styles */
         header {
             text-align: center;
-            margin-bottom: 50px;
+            padding: 50px 20px 30px;
             position: relative;
         }
-        
+
         h1 {
-            font-size: 3rem;
-            margin-bottom: 10px;
-            background: linear-gradient(to right, var(--star-yellow), var(--nebula-pink));
+            font-size: 3.5rem;
+            margin: 0;
+            background: linear-gradient(to right, var(--accent), var(--secondary));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             text-shadow: 0 0 20px rgba(255,255,255,0.3);
+            font-family: 'Orbitron', sans-serif;
         }
-        
+
         .tagline {
             font-size: 1.5rem;
-            color: var(--star-yellow);
-            margin-top: 0;
+            color: var(--accent);
+            margin: 10px 0 30px;
         }
-        
+
         .hero-img {
             width: 180px;
             height: 180px;
             border-radius: 50%;
             object-fit: cover;
-            border: 5px solid var(--star-yellow);
-            margin: 30px auto;
-            display: block;
-            box-shadow: 0 0 30px var(--nebula-pink);
+            border: 5px solid var(--accent);
+            margin: 20px auto;
+            box-shadow: 0 0 30px var(--secondary);
             transition: transform 0.5s;
+            position: relative;
+            z-index: 1;
         }
-        
+
         .hero-img:hover {
             transform: rotate(10deg) scale(1.1);
         }
-        
+
+        /* Sections */
         section {
-            margin-bottom: 50px;
+            margin: 40px auto;
             padding: 30px;
+            max-width: 900px;
             background: rgba(15, 14, 23, 0.7);
-            border-radius: 15px;
+            border-radius: 20px;
             backdrop-filter: blur(10px);
-            border: 1px solid var(--galaxy-blue);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 1px solid rgba(0, 161, 244, 0.3);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
             transition: transform 0.3s;
         }
-        
+
         section:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(106, 0, 244, 0.4);
+            box-shadow: 0 15px 40px rgba(106, 0, 244, 0.4);
         }
-        
+
         h2 {
             font-size: 2rem;
-            color: var(--star-yellow);
+            color: var(--accent);
             margin-top: 0;
             display: flex;
             align-items: center;
             gap: 10px;
         }
-        
+
         h2::after {
             content: "";
             flex: 1;
             height: 3px;
-            background: linear-gradient(to right, var(--nebula-pink), transparent);
-            margin-left: 10px;
+            background: linear-gradient(to right, var(--secondary), transparent);
+            margin-left: 15px;
         }
-        
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin: 30px 0;
-            flex-wrap: wrap;
+
+        /* Theme Selector */
+        .theme-selector {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
         }
-        
-        .social-links a {
-            text-decoration: none;
-            padding: 12px 25px;
-            border-radius: 50px;
-            font-weight: bold;
+
+        .theme-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid var(--accent);
+            background: rgba(15, 14, 23, 0.7);
+            cursor: pointer;
             transition: all 0.3s;
             display: flex;
             align-items: center;
-            gap: 8px;
-            font-size: 1.1rem;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 1.5rem;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
         }
-        
-        .strava {
-            background: var(--nebula-pink);
-            color: white;
-            box-shadow: 0 5px 15px rgba(255, 45, 117, 0.4);
+
+        .theme-btn:hover {
+            transform: rotate(45deg) scale(1.1);
         }
-        
-        .instagram {
-            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
-            color: white;
-            box-shadow: 0 5px 15px rgba(220, 39, 67, 0.4);
-        }
-        
-        .email {
-            background: var(--galaxy-blue);
-            color: white;
-            box-shadow: 0 5px 15px rgba(0, 161, 244, 0.4);
-        }
-        
-        .social-links a:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-        }
-        
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-        }
-        
-        .gallery img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            border-radius: 10px;
-            transition: all 0.5s;
-            border: 2px solid transparent;
-        }
-        
-        .gallery img:hover {
-            transform: scale(1.05) rotate(2deg);
-            border-color: var(--star-yellow);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-        }
-        
-        .fun-fact {
-            background: rgba(255, 222, 89, 0.1);
+
+        .theme-options {
+            position: absolute;
+            top: 70px;
+            right: 0;
+            background: rgba(15, 14, 23, 0.9);
             padding: 20px;
-            border-left: 4px solid var(--star-yellow);
-            margin: 25px 0;
-            font-style: italic;
-            border-radius: 0 10px 10px 0;
+            border-radius: 15px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            width: 350px;
+            transform: scale(0);
+            transform-origin: top right;
+            transition: transform 0.3s;
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--primary);
+        }
+
+        .theme-options.active {
+            transform: scale(1);
+        }
+
+        .theme-option {
+            height: 80px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
             position: relative;
             overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 10px;
+            color: white;
+            text-shadow: 0 0 5px black;
+            font-size: 0.8rem;
+            border: 2px solid transparent;
         }
-        
-        .fun-fact::before {
-            content: "✨";
-            position: absolute;
-            font-size: 3rem;
-            right: 10px;
-            top: 10px;
-            opacity: 0.2;
+
+        .theme-option:hover {
+            transform: scale(1.05);
+            border-color: var(--accent);
         }
-        
-        ul {
-            padding-left: 20px;
+
+        .theme-option .theme-name {
+            font-weight: bold;
+            z-index: 2;
         }
-        
-        li {
-            margin-bottom: 10px;
-            position: relative;
-            padding-left: 25px;
+
+        .theme-option .theme-colors {
+            display: flex;
+            gap: 3px;
+            margin-top: 5px;
+            z-index: 2;
         }
-        
-        li::before {
-            content: "⚡";
-            position: absolute;
-            left: 0;
+
+        .theme-option .theme-color {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            border: 1px solid white;
         }
-        
-        footer {
-            text-align: center;
-            margin-top: 60px;
-            padding: 30px;
-            color: rgba(255,255,255,0.7);
-            position: relative;
-        }
-        
-        footer::before {
+
+        .theme-option::after {
             content: "";
             position: absolute;
             top: 0;
-            left: 25%;
-            width: 50%;
-            height: 1px;
-            background: linear-gradient(to right, transparent, var(--galaxy-blue), transparent);
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            z-index: 1;
         }
-        
-        .emoji-float {
+
+        /* Image Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            aspect-ratio: 1;
+            transition: all 0.5s;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px var(--primary);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 15px;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+
+        /* Lightbox Effect */
+        .lightbox {
             position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+
+        .lightbox.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+            transform: scale(0.8);
+            transition: transform 0.3s;
+        }
+
+        .lightbox.active .lightbox-content {
+            transform: scale(1);
+        }
+
+        .lightbox img {
+            max-width: 100%;
+            max-height: 90vh;
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(106, 0, 244, 0.5);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
             font-size: 2rem;
-            animation: float 5s infinite ease-in-out;
-            opacity: 0.7;
-            z-index: -1;
+            color: white;
+            cursor: pointer;
+            background: var(--secondary);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(10deg); }
+
+        /* Games Section */
+        .game-container {
+            width: 100%;
+            height: 400px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+            margin: 20px 0;
         }
-        
+
+        .game-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .game-tab {
+            padding: 8px 15px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .game-tab.active {
+            background: var(--secondary);
+            font-weight: bold;
+        }
+
+        /* Game Elements */
+        #particle {
+            width: 20px;
+            height: 20px;
+            background: var(--accent);
+            border-radius: 50%;
+            position: absolute;
+            box-shadow: 0 0 10px var(--accent);
+        }
+
+        #target {
+            width: 30px;
+            height: 30px;
+            background: var(--secondary);
+            border-radius: 50%;
+            position: absolute;
+            box-shadow: 0 0 15px var(--secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 0.8rem;
+        }
+
+        #quantum-dot {
+            width: 15px;
+            height: 15px;
+            background: var(--secondary);
+            border-radius: 50%;
+            position: absolute;
+            box-shadow: 0 0 10px var(--secondary);
+            opacity: 0;
+        }
+
+        .game-score {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-family: 'Orbitron', sans-serif;
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+
+        .game-instructions {
+            margin-top: 10px;
+            font-style: italic;
+            opacity: 0.8;
+        }
+
+        /* Personal Album Section */
+        .album-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .album-item {
+            border-radius: 10px;
+            overflow: hidden;
+            height: 200px;
+            position: relative;
+        }
+
+        .album-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .album-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Heroes Section */
+        .heroes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .hero-card {
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            padding: 20px;
+            transition: transform 0.3s;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .hero-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255,255,255,0.15);
+            box-shadow: 0 10px 30px rgba(106, 0, 244, 0.3);
+        }
+
+        .hero-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 15px;
+            display: block;
+            border: 3px solid var(--accent);
+        }
+
+        .hero-name {
+            text-align: center;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--accent);
+        }
+
+        .hero-dates {
+            text-align: center;
+            font-style: italic;
+            opacity: 0.8;
+            margin-bottom: 15px;
+        }
+
+        /* Blog Section */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .blog-card {
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(106, 0, 244, 0.3);
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .blog-content {
+            padding: 20px;
+        }
+
+        .blog-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--accent);
+        }
+
+        .blog-excerpt {
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+
+        .blog-link {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .blog-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
             h1 {
-                font-size: 2.2rem;
+                font-size: 2.5rem;
             }
             
-            .gallery {
+            .theme-options {
+                width: 300px;
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .gallery, .album-container {
                 grid-template-columns: 1fr 1fr;
             }
             
-            section {
-                padding: 20px;
+            .heroes-grid, .blog-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <!-- Floating emojis -->
-    <div class="emoji-float" style="top: 20%; left: 10%;">🚀</div>
-    <div class="emoji-float" style="top: 70%; left: 85%; animation-delay: 1s;">🏃‍♂️</div>
-    <div class="emoji-float" style="top: 40%; left: 90%; animation-delay: 2s;">📚</div>
-    <div class="emoji-float" style="top: 80%; left: 15%; animation-delay: 3s;">⚛️</div>
-    
+    <!-- Theme Selector -->
+    <div class="theme-selector">
+        <div class="theme-btn" id="theme-toggle">
+            <i class="fas fa-palette"></i>
+        </div>
+        <div class="theme-options" id="theme-options">
+            <div class="theme-option" style="background-image: url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564');" data-theme="cosmic-purple" data-colors="#6a00f4,#ff2d75,#ffde59,#0f0e17">
+                <span class="theme-name">Cosmic Purple</span>
+                <div class="theme-colors">
+                    <div class="theme-color" style="background: #6a00f4;"></div>
+                    <div class="theme-color" style="background: #ff2d75;"></div>
+                    <div class="theme-color" style="background: #ffde59;"></div>
+                </div>
+            </div>
+            <div class="theme-option" style="background-image: url('https://images.unsplash.com/photo-1506318137071-a8e063b4bec0');" data-theme="nebula-blue" data-colors="#00a1f4,#00e676,#ffde59,#0d1b2a">
+                <span class="theme-name">Nebula Blue</span>
+                <div class="theme-colors">
+                    <div class="theme-color" style="background: #00a1f4;"></div>
+                    <div class="theme-color" style="background: #00e676;"></div>
+                    <div class="theme-color" style="background: #ffde59;"></div>
+                </div>
+            </div>
+            <div class="theme-option" style="background-image: url('https://images.unsplash.com/photo-1534796636912-3b95b3ab5986');" data-theme="stellar-pink" data-colors="#ff2d75,#aa00ff,#00e676,#1a1423">
+                <span class="theme-name">Stellar Pink</span>
+                <div class="theme-colors">
+                    <div class="theme-color" style="background: #ff2d75;"></div>
+                    <div class="theme-color" style="background: #aa00ff;"></div>
+                    <div class="theme-color" style="background: #00e676;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <header>
         <h1>Abhinav Mishra</h1>
-        <p class="tagline">⚛️ Physics Nerd | 🏃‍♂️ Occasional Runner | 📚 Professional Book Buyer</p>
+        <p class="tagline">⚛️ Physics × 🏃‍♂️ Running × 📚 Books</p>
         <img src="1.jpeg" alt="Abhinav Mishra" class="hero-img">
         <!-- Replace with your actual photo -->
     </header>
-    
+
     <section id="about">
         <h2><i class="fas fa-user-astronaut"></i> About Me</h2>
-        <p>Officially: MSc in Physics. Unofficially: I'm just a guy who thinks about space while running, and about running while studying space.</p>
+        <p>Hello! I'm Abhinav Mishra, a passionate physicist, avid runner, and lifelong learner. With an MSc in Physics, I've dedicated my life to understanding the fundamental workings of the universe while also pursuing my other passions.</p>
         
-        <div class="fun-fact">
-            <strong>Fun Fact:</strong> I can derive quantum equations but still can't parallel park. The universe works in mysterious ways.
-        </div>
+        <p>My journey in physics began when I first read about Homi J. Bhabha's work as a teenager. Since then, I've been fascinated by quantum mechanics, astrophysics, and the intersection of theoretical and applied physics. When I'm not buried in equations, you'll find me running trails (slowly but steadily), collecting books I swear I'll read someday, or trying to explain complex physics concepts to anyone who'll listen (and many who won't).</p>
+        
+        <p>I believe science should be accessible to everyone, which is why I enjoy breaking down complex ideas into understandable bits. My running habit keeps me sane (mostly) and provides the perfect time to think about physics problems. I'm particularly interested in quantum field theory and how it might help us understand the universe at its most fundamental level.</p>
+        
+        <p>Professionally, I've worked on [your work/research experience]. Personally, I'm always looking for the next challenge - whether it's a new research problem, a longer run, or finally finishing that stack of books on my nightstand.</p>
         
         <div class="social-links">
             <a href="https://strava.app.link/blNyHmSw7Rb" class="strava"><i class="fab fa-strava"></i> Strava or It Didn't Happen</a>
@@ -279,65 +607,417 @@
             <a href="mailto:shoreabhinav@gmail.com" class="email"><i class="fas fa-envelope"></i> Serious(ish) Emails</a>
         </div>
     </section>
-    
+
     <section id="physics">
         <h2><i class="fas fa-atom"></i> Physics Stuff</h2>
         <p>I study the universe's mysteries by day, and by night I wonder why my Wi-Fi doesn't work.</p>
-        <p><strong>Scientific Heroes:</strong> The holy trinity of Indian science - Bhabha, Sarabhai, and Kalam (who proved nerds can be cool).</p>
+        <p><strong>Research Interests:</strong> Quantum Field Theory, Particle Physics, Cosmology, and the occasional existential crisis about the nature of reality.</p>
+    </section>
+
+    <section id="heroes">
+        <h2><i class="fas fa-star"></i> My Scientific Heroes</h2>
+        <p>These brilliant minds have shaped my understanding of physics and inspired my journey:</p>
         
-        <div class="fun-fact">
-            <strong>Current Research:</strong> Calculating the exact number of chai breaks needed to complete a PhD thesis.
+        <div class="heroes-grid">
+            <div class="hero-card">
+                <img src="9.jpg" alt="Homi J. Bhabha" class="hero-image">
+                <h3 class="hero-name">Homi J. Bhabha</h3>
+                <p class="hero-dates">1909-1966</p>
+                <p>The father of India's nuclear program, Bhabha was a visionary physicist who established the Tata Institute of Fundamental Research and the Atomic Energy Establishment. His work on cosmic rays and quantum theory laid the foundation for India's scientific progress.</p>
+                <p><strong>Key Contribution:</strong> Bhabha scattering in quantum electrodynamics</p>
+            </div>
+            
+            <div class="hero-card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/d/d3/Albert_Einstein_Head.jpg" alt="Albert Einstein" class="hero-image">
+                <h3 class="hero-name">Albert Einstein</h3>
+                <p class="hero-dates">1879-1955</p>
+                <p>The most famous physicist of all time revolutionized our understanding of space, time, and gravity with his theories of relativity. His work on the photoelectric effect earned him the Nobel Prize and helped establish quantum theory.</p>
+                <p><strong>Key Contribution:</strong> Theory of General Relativity</p>
+            </div>
+            
+            <div class="hero-card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/A._P._J._Abdul_Kalam.jpg" alt="APJ Abdul Kalam" class="hero-image">
+                <h3 class="hero-name">APJ Abdul Kalam</h3>
+                <p class="hero-dates">1931-2015</p>
+                <p>Known as the Missile Man of India, Kalam was a brilliant aerospace engineer who played key roles in India's space and missile programs. His leadership at ISRO and DRDO helped establish India as a space-faring nation.</p>
+                <p><strong>Key Contribution:</strong> Development of SLV-III and ballistic missile technology</p>
+            </div>
         </div>
     </section>
-    
-    <section id="running">
-        <h2><i class="fas fa-running"></i> Running Corner</h2>
-        <p>I run. Not always fast. Not always far. But always with questionable playlists.</p>
-        <p><strong>Latest Achievement:</strong> Ran 5K without stopping (to check my phone).</p>
-        <p><strong>Running Philosophy:</strong> "The first kilometer is a lie. The last kilometer is a betrayal."</p>
+
+    <section id="games">
+        <h2><i class="fas fa-gamepad"></i> Physics Games</h2>
         
-        <div class="fun-fact">
-            <strong>Pro Tip:</strong> If you run slowly enough, it counts as "enjoying the scenery".
+        <div class="game-tabs">
+            <div class="game-tab active" data-game="collider">Particle Collider</div>
+            <div class="game-tab" data-game="quantum">Quantum Leap</div>
+        </div>
+        
+        <!-- Game 1: Particle Collider -->
+        <div class="game-container" id="collider-game">
+            <div id="particle"></div>
+            <div id="target">Hit!</div>
+            <div class="game-score">Score: <span id="collider-score">0</span></div>
+        </div>
+        
+        <!-- Game 2: Quantum Leap -->
+        <div class="game-container" id="quantum-game" style="display: none;">
+            <div id="quantum-dot"></div>
+            <div class="game-score">Quantum Jumps: <span id="quantum-score">0</span></div>
+        </div>
+        
+        <p class="game-instructions" id="game-instructions">Click to launch particle! Hit 10 targets to win.</p>
+    </section>
+
+    <section id="personal-album">
+        <h2><i class="fas fa-images"></i> Personal Album</h2>
+        <p>Moments from my journey through physics, running, and life:</p>
+        
+        <div class="album-container">
+            <!-- Replace these with your personal photos -->
+            <div class="album-item">
+                <img src="2.jpeg" alt="Physics Lab">
+            </div>
+            <div class="album-item">
+                <img src="3.jpeg" alt="Running">
+            </div>
+            <div class="album-item">
+                <img src="4.jpeg" alt="Books">
+            </div>
+            <div class="album-item">
+                <img src="7.jpeg" alt="Scenic Run">
+            </div>
+            <div class="album-item">
+                <img src="6.jpeg" alt="Giving talk">
+            </div>
+            <div class="album-item">
+                <img src="8.jpeg" alt="After running">
+            </div>
         </div>
     </section>
-    
-    <section id="books">
-        <h2><i class="fas fa-book-open"></i> Book Nook</h2>
-        <p>My bookshelf is basically a monument to good intentions. So many books, so little attention span.</p>
-        <p><strong>Currently "Reading":</strong> <em>A Brief History of Time</em> (brief being the operative word)</p>
-        <p><strong>All-Time Favorite:</strong> <em>Wings of Fire</em> (because Kalam was the original space geek)</p>
-    </section>
-    
-    <section id="gallery">
-        <h2><i class="fas fa-camera"></i> Life in Pixels</h2>
-        <p>Visual evidence that I occasionally interact with the physical world:</p>
+
+    <section id="blog">
+        <h2><i class="fas fa-pen-fancy"></i> My Blog</h2>
+        <p>Thoughts on physics, running, and everything in between:</p>
         
-        <div class="gallery">
-            <!-- Replace these with your actual photos -->
-            <img src="2.jpeg" alt="In the lab">
-            <img src="3.jpeg" alt="Running">
-            <img src="4.jpeg" alt="Books">
-            <img src="6.jpeg" alt="Running spot">
-            <img src="7.jpeg" alt="Giving talk">
-            <img src="8.jpeg" alt="After running">
+        <div class="blog-grid">
+            <div class="blog-card">
+                <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d" alt="Quantum Physics" class="blog-image">
+                <div class="blog-content">
+                    <h3 class="blog-title">The Thrill of Thinking</h3>
+                    <p class="blog-excerpt">There are moments when I pause in silence and just think — really think — about the uni....</p>
+                    <a href="https://abhinavshore.blogspot.com/2020/04/cosmos.html" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <div class="blog-card">
+                <img src="https://images.unsplash.com/photo-1542273917363-3b1817f69a2d" alt="Running" class="blog-image">
+                <div class="blog-content">
+                    <h3 class="blog-title">The Physics of Running</h3>
+                    <p class="blog-excerpt">How understanding biomechanics and energy conservation can make you a better runner (or at least help you complain more scientifically)...</p>
+                    <a href="blog/physics-of-running.html" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
         </div>
     </section>
-    
-    <section id="contact">
-        <h2><i class="fas fa-comment-dots"></i> Let's Connect!</h2>
-        <p>Want to discuss:</p>
-        <ul>
-            <li>Quantum physics? (I'll Google as we talk)</li>
-            <li>Running tips? (I specialize in slow-and-steady)</li>
-            <li>Why Kalam was awesome? (Finally my expertise!)</li>
-            <li>The perfect chai recipe? (Critical research)</li>
-        </ul>
-        <p>Shoot me an email at <a href="mailto:shoreabhinav@gmail.com" style="color: var(--star-yellow);">shoreabhinav@gmail.com</a> or slide into my DMs!</p>
-    </section>
-    
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <div class="lightbox-content">
+            <img id="lightbox-img" src="" alt="">
+        </div>
+    </div>
+
     <footer>
-        <p>"Dream like Kalam, run like you stole something, and never skip chai breaks."</p>
-        <p>© 2023 Abhinav Mishra | Nobel Prize Count: 0 (but my mom believes in me)</p>
+        <p>"Dream like Kalam, run like you're late for a physics exam."</p>
+        <p>© <span id="year"></span> Abhinav Mishra | Made with <i class="fas fa-rocket"></i> and <i class="fas fa-atom"></i></p>
     </footer>
+
+    <script>
+        // Set current year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Theme Selector
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeOptions = document.getElementById('theme-options');
+        
+        themeToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            themeOptions.classList.toggle('active');
+        });
+        
+        document.addEventListener('click', () => {
+            themeOptions.classList.remove('active');
+        });
+        
+        themeOptions.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+        
+        document.querySelectorAll('.theme-option').forEach(option => {
+            option.addEventListener('click', () => {
+                const theme = option.dataset.theme;
+                const colors = option.dataset.colors.split(',');
+                const bgImage = option.style.backgroundImage;
+                
+                document.documentElement.style.setProperty('--primary', colors[0]);
+                document.documentElement.style.setProperty('--secondary', colors[1]);
+                document.documentElement.style.setProperty('--accent', colors[2]);
+                document.documentElement.style.setProperty('--dark', colors[3]);
+                document.documentElement.style.setProperty('--bg-image', bgImage);
+                document.documentElement.style.setProperty('--bg-gradient', `linear-gradient(135deg, ${colors[0]} 0%, ${colors[3]} 100%)`);
+                
+                themeOptions.classList.remove('active');
+            });
+        });
+
+        // Lightbox Gallery
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const galleryItems = document.querySelectorAll('.gallery-item, .album-item');
+        const closeBtn = document.querySelector('.lightbox-close');
+
+        galleryItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const imgSrc = item.querySelector('img').src;
+                lightboxImg.src = imgSrc;
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        closeBtn.addEventListener('click', () => {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Games System
+        const gameTabs = document.querySelectorAll('.game-tab');
+        const gameContainers = document.querySelectorAll('.game-container');
+        const gameInstructions = document.getElementById('game-instructions');
+        
+        // Game 1: Particle Collider
+        let particleX = 100, particleY = 100;
+        let targetX = 300, targetY = 200;
+        let particleSpeed = 0, particleAngle = 0;
+        let colliderScore = 0;
+        let colliderAnimationId;
+        
+        // Game 2: Quantum Leap
+        let quantumJumps = 0;
+        let quantumAnimationId;
+        let quantumVisible = false;
+        
+        // Initialize all games
+        function initCollider() {
+            const container = document.getElementById('collider-game');
+            particleX = container.clientWidth / 2;
+            particleY = container.clientHeight / 2;
+            targetX = Math.random() * (container.clientWidth - 60) + 30;
+            targetY = Math.random() * (container.clientHeight - 60) + 30;
+            
+            updateParticlePosition();
+            updateTargetPosition();
+            colliderScore = 0;
+            document.getElementById('collider-score').textContent = '0';
+        }
+        
+        function initQuantum() {
+            quantumJumps = 0;
+            document.getElementById('quantum-score').textContent = '0';
+            document.getElementById('quantum-dot').style.opacity = '0';
+            quantumVisible = false;
+        }
+        
+        // Game tab switching
+        gameTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                gameTabs.forEach(t => t.classList.remove('active'));
+                gameContainers.forEach(c => c.style.display = 'none');
+                
+                tab.classList.add('active');
+                const gameId = tab.dataset.game;
+                document.getElementById(`${gameId}-game`).style.display = 'block';
+                
+                // Update instructions
+                if (gameId === 'collider') {
+                    gameInstructions.textContent = "Click to launch particle! Hit 10 targets to win.";
+                } else if (gameId === 'quantum') {
+                    gameInstructions.textContent = "Click the quantum particles when they appear!";
+                }
+                
+                resetAllGames();
+            });
+        });
+        
+        // Reset all games when switching
+        function resetAllGames() {
+            cancelAnimationFrame(colliderAnimationId);
+            cancelAnimationFrame(quantumAnimationId);
+            
+            colliderAnimationId = null;
+            quantumAnimationId = null;
+            
+            initCollider();
+            initQuantum();
+            
+            // Start animation for active game
+            const activeTab = document.querySelector('.game-tab.active');
+            if (activeTab.dataset.game === 'quantum') {
+                quantumGameLoop();
+            }
+        }
+        
+        // Initialize first game
+        initCollider();
+        initQuantum();
+        
+        // Particle Collider Game
+        function updateParticlePosition() {
+            document.getElementById('particle').style.left = `${particleX - 10}px`;
+            document.getElementById('particle').style.top = `${particleY - 10}px`;
+        }
+        
+        function updateTargetPosition() {
+            document.getElementById('target').style.left = `${targetX - 15}px`;
+            document.getElementById('target').style.top = `${targetY - 15}px`;
+        }
+        
+        function checkCollision() {
+            const dx = particleX - targetX;
+            const dy = particleY - targetY;
+            return Math.sqrt(dx * dx + dy * dy) < 25;
+        }
+        
+        function colliderGameLoop() {
+            if (particleSpeed > 0.5) {
+                particleX += Math.cos(particleAngle) * particleSpeed;
+                particleY += Math.sin(particleAngle) * particleSpeed;
+                
+                const container = document.getElementById('collider-game');
+                
+                // Wall collisions
+                if (particleX < 10 || particleX > container.clientWidth - 10) {
+                    particleAngle = Math.PI - particleAngle;
+                    particleSpeed *= 0.9;
+                }
+                
+                if (particleY < 10 || particleY > container.clientHeight - 10) {
+                    particleAngle = -particleAngle;
+                    particleSpeed *= 0.9;
+                }
+                
+                updateParticlePosition();
+                
+                // Target collision
+                if (checkCollision()) {
+                    colliderScore++;
+                    document.getElementById('collider-score').textContent = colliderScore;
+                    
+                    if (colliderScore >= 10) {
+                        document.getElementById('collider-score').textContent = "WINNER!";
+                        particleSpeed = 0;
+                        return;
+                    }
+                    
+                    // Visual feedback
+                    document.getElementById('target').style.backgroundColor = 'white';
+                    setTimeout(() => {
+                        document.getElementById('target').style.backgroundColor = '';
+                    }, 200);
+                    
+                    // New target
+                    targetX = Math.random() * (container.clientWidth - 60) + 30;
+                    targetY = Math.random() * (container.clientHeight - 60) + 30;
+                    updateTargetPosition();
+                    
+                    // Speed up
+                    particleSpeed *= 1.1;
+                }
+                
+                // Slow down
+                particleSpeed *= 0.99;
+            }
+            
+            colliderAnimationId = requestAnimationFrame(colliderGameLoop);
+        }
+        
+        document.getElementById('collider-game').addEventListener('click', (e) => {
+            if (particleSpeed < 0.5) {
+                const rect = e.currentTarget.getBoundingClientRect();
+                const clickX = e.clientX - rect.left;
+                const clickY = e.clientY - rect.top;
+                
+                particleAngle = Math.atan2(clickY - particleY, clickX - particleX);
+                particleSpeed = 10;
+                
+                if (!colliderAnimationId) {
+                    colliderGameLoop();
+                }
+            }
+        });
+        
+        // Quantum Leap Game
+        function quantumGameLoop() {
+            if (!quantumVisible) {
+                // Randomly appear
+                if (Math.random() < 0.02) {
+                    const container = document.getElementById('quantum-game');
+                    const dot = document.getElementById('quantum-dot');
+                    
+                    dot.style.left = `${Math.random() * (container.clientWidth - 30)}px`;
+                    dot.style.top = `${Math.random() * (container.clientHeight - 30)}px`;
+                    dot.style.opacity = '1';
+                    quantumVisible = true;
+                    
+                    setTimeout(() => {
+                        dot.style.opacity = '0';
+                        quantumVisible = false;
+                    }, 500);
+                }
+            }
+            
+            quantumAnimationId = requestAnimationFrame(quantumGameLoop);
+        }
+        
+        document.getElementById('quantum-game').addEventListener('click', (e) => {
+            if (quantumVisible) {
+                const rect = e.currentTarget.getBoundingClientRect();
+                const clickX = e.clientX - rect.left;
+                const clickY = e.clientY - rect.top;
+                
+                const dot = document.getElementById('quantum-dot');
+                const dotX = parseFloat(dot.style.left);
+                const dotY = parseFloat(dot.style.top);
+                
+                const distance = Math.sqrt(
+                    Math.pow(clickX - dotX, 2) + 
+                    Math.pow(clickY - dotY, 2)
+                );
+                
+                if (distance < 30) {
+                    quantumJumps++;
+                    document.getElementById('quantum-score').textContent = quantumJumps;
+                    dot.style.opacity = '0';
+                    quantumVisible = false;
+                    
+                    if (quantumJumps >= 10) {
+                        document.getElementById('quantum-score').textContent = "QUANTUM MASTER!";
+                    }
+                }
+            }
+        });
+        
+        // Start with Particle Collider game
+        colliderGameLoop();
+    </script>
 </body>
 </html>
